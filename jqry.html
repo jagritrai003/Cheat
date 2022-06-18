@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function()
+    {
+      $("#btn").click(function()
+      {
+        if($("#name1").val()==null || $("#name1").val()=="")
+        {
+          alert("Empty Field Not Allowed")
+        }
+        if($("#name1").val().length>0)
+        {
+          for(let i=0;i<$("#name1").val().length;i++)
+          {
+            if($("#name1").val().charAt(i)>='0' && $("#name1").val().charAt(i)<='9')
+            {
+              alert("Invalid Name");
+            }
+          }
+        }
+        let email=$("#ed").val();
+        let regx=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+        if(!regx.test(email))
+        {
+          alert("Invalid email");
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+  Name:<input id="name1" type="text" name="name"><br>
+  Password:<input id="pass" type="input" name="password"><br>
+  Email:<input id="ed" type="email"><br>
+  <input id="btn" type="submit" value="submit">
+</body>
+</html>
